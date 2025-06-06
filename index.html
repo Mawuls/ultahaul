@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Selamat Ulang Tahun Aul!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Pacifico', cursive;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: white;
+      text-align: center;
+      text-shadow: 2px 2px #ff6f91;
+      animation: fadeInDown 2s ease;
+    }
+
+    h2 {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: white;
+      text-align: center;
+      animation: fadeInUp 2s ease;
+    }
+
+    .balloons {
+      position: absolute;
+      bottom: -150px;
+      display: flex;
+      gap: 20px;
+      z-index: -1;
+      animation: floatBalloons 10s linear infinite;
+    }
+
+    .balloon {
+      width: 40px;
+      height: 60px;
+      border-radius: 50% 50% 45% 45%;
+      background-color: #ff6f91;
+      position: relative;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 30px;
+      background: #333;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes floatBalloons {
+      0% { bottom: -150px; }
+      100% { bottom: 110%; }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      background-color: white;
+      color: #ff6f91;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: white;
+      opacity: 0;
+      text-align: center;
+      transition: opacity 1s ease;
+      max-width: 90%;
+    }
+
+    .message.show {
+      opacity: 1;
+    }
+
+    @media screen and (min-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .balloon {
+        width: 60px;
+        height: 80px;
+      }
+
+      .message {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="balloons">
+    <div class="balloon" style="background-color:#fcb045;"></div>
+    <div class="balloon" style="background-color:#fd1d1d;"></div>
+    <div class="balloon" style="background-color:#833ab4;"></div>
+    <div class="balloon" style="background-color:#00c9ff;"></div>
+  </div>
+
+  <h1>Selamat Ulang Tahun Aul!</h1>
+  <h2>Dari temanmu, aku dan Clau ❤️</h2>
+
+  <button onclick="showMessage()">Klik untuk pesan spesial 🎉</button>
+  <div class="message" id="birthdayMessage">
+    Semoga di usia ke-18 ini, Aul semakin bahagia, sehat selalu, dan tercapai semua cita-citanya! 🎂✨
+    <br>ini webnya ak buat sendiri ye!!
+  </div>
+
+  <script>
+    function showMessage() {
+      const msg = document.getElementById("birthdayMessage");
+      msg.classList.add("show");
+    }
+  </script>
+</body>
+</html>
